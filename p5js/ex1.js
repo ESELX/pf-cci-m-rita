@@ -1,7 +1,12 @@
+const barWidth = 20;
+let lastBar = -1;
+
 function setup(){
 
   createCanvas(windowWidth,windowHeight);
-
+  colorMode(HSB, height, height, height);
+  noStroke();
+  background(0);
 
 }
 
@@ -16,5 +21,22 @@ function draw() {
 
   textSize(width / 50);
   text(dist(width/2, height/2, mouseX, mouseY),50,50);
+  
+  let whichBar = mouseX / barWidth;
+  if (whichBar !== lastBar) {
+    let barX = whichBar * barWidth;
+    fill(mouseY, height, height);
+    rect(barX, 0, barWidth, height);
+    lastBar = whichBar;
 
 }
+  
+}
+
+
+
+
+
+  
+    
+  
